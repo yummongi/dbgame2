@@ -3,7 +3,7 @@ public class GameDto {
     private String userId;
     private String userPw;
     private String name;
-    private int gusl;
+    private int marble;
 
     public int getId() {
         return id;
@@ -37,11 +37,11 @@ public class GameDto {
         this.name = name;
     }
 
-    public int getGusl() {
-        return gusl;
+    public int getMarble() {
+        return marble;
     }
 
-    public void setGusl(int gusl) {
-        this.gusl = gusl;
+    public void setMarble(int marble) {
+        this.marble = marble;
     }
 }
