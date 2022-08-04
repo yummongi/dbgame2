@@ -1,16 +1,16 @@
 public class GameDto {
-    private int id;
+    private int num;
     private String userId;
     private String userPw;
     private String name;
     private int marble;
 
     public int getId() {
-        return id;
+        return num;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int num) {
+        this.num = num;
     }
 
     public String getUserId() {

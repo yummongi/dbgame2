@@ -3,14 +3,10 @@ import java.util.Scanner;
 public class MainClass {
     public static void main(String[] args) {
 
-        GameDaoImpl.login();
 
-        GameDao dao = new GameDaoImpl();
+        GameBase gb = new GameBase();
+        gb.login();
 
-        GameDto dto = new GameDto();
-
-
-        //dao.save(dto);
 
     }
 }
