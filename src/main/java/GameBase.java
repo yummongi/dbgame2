@@ -19,7 +19,6 @@ public class GameBase {
     }
 
 
-
     //인트로 메세지
     private void intro() {
         System.out.println("=======================================");
@@ -49,17 +48,17 @@ public class GameBase {
         }
     }
 
-    public void isSave(){
+    public void isSave() {
 
 
         System.out.print("저장하시겠습니까? (예 : y / 아니오: n) : ");
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.next();
 
-        if(answer.equalsIgnoreCase("y")){
+        if (answer.equalsIgnoreCase("y")) {
             dao.update(dto.getId(), mylife);
             System.out.println(mylife + "개를 저장하였습니다.");
-        }else{
+        } else {
             dao.delete(dto.getId());
         }
 
@@ -104,26 +103,19 @@ public class GameBase {
 
             dto = dao.findIdPw(id, pw);
 
+            if (dto != null) {
+                System.out.println("로그인 성공!");
+                System.out.println("==================");
+                System.out.println("게임 고유 번호: " + dto.getId());
+                System.out.println("당신의 아이디: " + dto.getUserId());
+                System.out.println("당신의 패스워드: " + dto.getUserPw());
+                System.out.println("당신의 이름: " + dto.getName());
+                System.out.println("당신의 구슬 : " + dto.getMarble());
+                setLife();
+                gameStart();
 
-            if (id.equalsIgnoreCase(dto.getUserId())) { //아이디가 맞다면
-                System.out.println("아이디가 있습니다. 성공");
-                if (id.equalsIgnoreCase(dto.getUserId()) && pw.equalsIgnoreCase(dto.getUserPw())) {
-                    System.out.println("로그인 성공!");
-                    System.out.println("==================");
-                    System.out.println("게임 고유 번호: " + dto.getId());
-                    System.out.println("당신의 아이디: " + dto.getUserId());
-                    System.out.println("당신의 패스워드: " + dto.getUserPw());
-                    System.out.println("당신의 이름: " + dto.getName());
-                    System.out.println("당신의 구슬 : " + dto.getMarble());
-                    setLife();
-                    gameStart();
-
-                } else {
-                    System.out.println("비밀번호가 틀렸습니다!");
-                }
-            } else { //회원가입
-                System.out.println("아이디가 없습니다. 회원가입으로 이동합니다.");
-                register();
+            } else {
+                System.out.println("로그인 실패 !");
             }
         } else if (answer.equalsIgnoreCase("n")) {
             System.out.println("아이디가 없으므로, 회원가입으로 이동합니다.");
@@ -131,7 +123,6 @@ public class GameBase {
         } else {
             System.out.println("로그인 실패!");
         }
-
     }
 
     public void register() {
